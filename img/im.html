@@ -1,0 +1,374 @@
+<html><head><base href="https://portfolio.thiagovf.com/In%20this%20div%20that%20is%20my%20paragraph%20put%20an%20image%20of%20a%20person%20not%20too%20big%20in%20a%20beautiful%20modeling,%20this%20image%20I%20want%20inside%20the%20dive%20of%20welcome%20to%20the%20right%20coming%20back%2020%20pix">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiago Vasconcelos Furtado - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #ffffff;
+    --secondary-color: #4a90e2;
+    --header-color: #1a2b3c;
+    --background-color: #f0f4f8;
+    --text-color: #333333;
+    --light-blue: #e6f3ff;
+    --welcome-blue: #1a365d;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  header {
+    background-color: var(--header-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin-right: 2rem;
+  }
+
+  nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: var(--secondary-color);
+  }
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icons a {
+    margin-left: 20px;
+  }
+
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+  }
+
+  .social-icons img:hover {
+    opacity: 0.8;
+  }
+
+  h1, h2, h3 {
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+
+  .project {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-image {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .project-description {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  footer {
+    background-color: var(--header-color);
+    color: var(--primary-color);
+    padding: 2rem 0;
+    margin-top: 2rem;
+  }
+
+  .intro-box {
+    background-color: var(--welcome-blue);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .intro-content {
+    flex: 1;
+  }
+
+  .intro-image {
+    flex: 0 0 auto;
+    margin-left: 20px;
+  }
+
+  .intro-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .intro-box h1 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-weight: 400;
+  }
+
+  .intro-box p {
+    color: var(--primary-color);
+    font-weight: 400;
+  }
+
+  .schedule-meeting {
+    width: 300px;
+    height: 300px;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    overflow-y: auto;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: -320px; /* Start off-screen to the left */
+    transform: translateY(-50%);
+    z-index: 1000;
+    opacity: 0;
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+
+  .schedule-meeting.show {
+    left: 20px; /* Slide in from the left */
+    opacity: 1;
+  }
+
+  .schedule-meeting h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+  }
+
+  .schedule-form {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .schedule-form input,
+  .schedule-form select,
+  .schedule-form textarea {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid var(--secondary-color);
+    background-color: #ffffff;
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+  }
+
+  .schedule-form button,
+  #scheduleButton {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+  }
+
+  .schedule-form button:hover,
+  #scheduleButton:hover {
+    background-color: #3a7bc8;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .overlay.show {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#projects">Projetos</a></li>
+        <li><a href="#schedule" id="scheduleButton">Agendar</a></li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/" target="_blank">
+          <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png" alt="Instagram" width="24" height="24">
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+          <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-512.png" alt="LinkedIn" width="24" height="24">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <div class="intro-box">
+        <div class="intro-content">
+          <h1>Thiago Vasconcelos Furtado</h1>
+          <p>Bem-vindo ao meu portfólio! Sou um desenvolvedor apaixonado por criar soluções inovadoras e impactantes.</p>
+        </div>
+        <div class="intro-image">
+          <img src="https://picsum.photos/seed/thiago/200/300" alt="Imagem de perfil de Thiago Vasconcelos Furtado" width="200" height="300">
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Meus Projetos</h2>
+      <div class="project">
+        <div class="project-image">
+          <img src="https://picsum.photos/seed/project1/400/300" alt="Imagem do Projeto 1" width="400" height="300">
+        </div>
+        <div class="project-description">
+          <h3>Projeto 1</h3>
+          <p>Este é um projeto inovador que utiliza inteligência artificial para otimizar processos de negócios. Desenvolvido com Python e TensorFlow, ele oferece insights valiosos para tomada de decisões.</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-image">
+          <img src="https://picsum.photos/seed/project2/400/300" alt="Imagem do Projeto 2" width="400" height="300">
+        </div>
+        <div class="project-description">
+          <h3>Projeto 2</h3>
+          <p>Uma aplicação web responsiva construída com React e Node.js. Este projeto facilita a gestão de tarefas em equipe, aumentando a produtividade e melhorando a colaboração.</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="project-image">
+          <img src="https://picsum.photos/seed/project3/400/300" alt="Imagem do Projeto 3" width="400" height="300">
+        </div>
+        <div class="project-description">
+          <h3>Projeto 3</h3>
+          <p>Um aplicativo móvel desenvolvido com Flutter, oferecendo uma experiência de usuário suave e intuitiva. Este app ajuda as pessoas a rastrear seus hábitos diários e alcançar seus objetivos pessoais.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="schedule-meeting" id="scheduleMeeting">
+    <h3>Agendar Reunião</h3>
+    <form class="schedule-form" id="scheduleForm">
+      <input type="text" placeholder="Seu Nome" required>
+      <input type="email" placeholder="Seu Email" required>
+      <select required>
+        <option value="">Selecione um horário</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+      </select>
+      <textarea placeholder="Assunto da reunião" required></textarea>
+      <button type="submit">Agendar Reunião</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Thiago Vasconcelos Furtado. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const scheduleButton = document.getElementById('scheduleButton');
+    const scheduleMeeting = document.getElementById('scheduleMeeting');
+    const overlay = document.getElementById('overlay');
+    const scheduleForm = document.getElementById('scheduleForm');
+
+    scheduleButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      overlay.style.display = 'block';
+      scheduleMeeting.style.display = 'block';
+      setTimeout(() => {
+        overlay.classList.add('show');
+        scheduleMeeting.classList.add('show');
+      }, 50);
+    });
+
+    overlay.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      scheduleMeeting.classList.remove('show');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        scheduleMeeting.style.display = 'none';
+      }, 500);
+    });
+
+    scheduleForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Reunião agendada com sucesso! Você receberá um e-mail de confirmação em breve.');
+      this.reset();
+      overlay.classList.remove('show');
+      scheduleMeeting.classList.remove('show');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        scheduleMeeting.style.display = 'none';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
